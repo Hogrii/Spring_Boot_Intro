@@ -15,7 +15,7 @@ public class MemoryMemberRepository implements MemberRepository {
     public Member save(Member member) {
         // id 저장
         member.setId(++sequence);
-        // Map에 id(key)와 name(value)를 저장
+        // Map에 id(key)와 member(value)를 저장
         store.put(member.getId(), member);
         // 저장된 member 반환
         return member;
@@ -42,5 +42,9 @@ public class MemoryMemberRepository implements MemberRepository {
     public List<Member> findAll() {
         // store에 있는 value들을 List로 반환
         return new ArrayList<>(store.values());
+    }
+
+    public void clearStore() {
+        store.clear();
     }
 }
