@@ -3,10 +3,15 @@ package hello.hellospring.service;
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+// 순수한 java 코드를 spring이 인식할 수 있게 만들어주는 어노테이션
+// Service -> 비즈니스 로직 제작
+@Service // @Component 어노테이션이 선언되어 있음
 public class MemberService {
     // Test 방법
     // 1. test -> repository에 Test Class를 만들어서 테스트
@@ -14,6 +19,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    @Autowired // MembersService와 MemberRepository를 이어준다.
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

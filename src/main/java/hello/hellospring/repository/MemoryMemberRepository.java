@@ -1,9 +1,12 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+// Repository -> 데이터 저장
+@Repository // @Component 어노테이션이 선언되어 있음
 public class MemoryMemberRepository implements MemberRepository {
     // Alt + Enter로 Implements Methods
 
